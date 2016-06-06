@@ -15,12 +15,13 @@ namespace firstMvcDatabase.Repository
         private void connection()
         {
             string constr = ConfigurationManager.ConnectionStrings["dbConn"].ToString();
-            con = new SqlConnection();
+            con = new SqlConnection(constr);
         }
         public bool AddEmployee(EmpModel obj)
         {
             connection();
             SqlCommand com = new SqlCommand("AddNewEmpDetails",con);
+            com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Name",obj.Name);
             com.Parameters.AddWithValue("@City",obj.city);
             com.Parameters.AddWithValue("@Address", obj.address);
