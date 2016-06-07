@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MsUniversity.Models
 {
-    class Course
+    public class Course
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseID { get; set; }
